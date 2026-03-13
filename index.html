@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elite Pathway — The ultimate guide for young athletes to develop their skills intellectually, physically, and mentally on the road to a D1 scholarship and professional career.">
+  <title>Elite Pathway | Youth Sports Development → D1 Scholarships & Beyond</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+</head>
+<body>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">🏆</span>
+        <span>ELITE PATHWAY</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#pathway">The Pathway</a></li>
+        <li><a href="#pillars">Development</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#recruiting">D1 Blueprint</a></li>
+        <li><a href="#scouts">Scouts</a></li>
+      </ul>
+      <button class="nav-cta" onclick="document.getElementById('pathway').scrollIntoView({behavior:'smooth'})">Start Your Journey</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="#pathway" class="mobile-link">The Pathway</a>
+    <a href="#pillars" class="mobile-link">Development</a>
+    <a href="#training" class="mobile-link">Training</a>
+    <a href="#recruiting" class="mobile-link">D1 Blueprint</a>
+    <a href="#scouts" class="mobile-link">Scouts</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="hero-glow glow-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🚀 The Athlete Development Blueprint</div>
+      <h1 class="hero-title">
+        Build Your Path to<br>
+        <span class="gradient-text">D1 Greatness</span> &<br>
+        <span class="gold-text">The Pros</span>
+      </h1>
+      <p class="hero-description">
+        A complete roadmap for young athletes to develop game IQ, agility, 
+        mental toughness, and every skill needed to earn a Division I 
+        scholarship — and beyond.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="document.getElementById('pathway').scrollIntoView({behavior:'smooth'})">
+          Explore The Pathway ↓
+        </button>
+        <button class="btn-secondary" onclick="document.getElementById('recruiting').scrollIntoView({behavior:'smooth'})">
+          D1 Recruiting Blueprint
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-target="2" data-suffix="%">0%</div>
+          <div class="hero-stat-label">High Schoolers Go D1</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-target="10000" data-suffix="">0</div>
+          <div class="hero-stat-label">Hours of Deliberate Practice</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-target="5" data-suffix="">0</div>
+          <div class="hero-stat-label">Pillars of Development</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ STATS BAR ═══════════ -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-icon">🧠</div>
+          <div class="stat-number cyan" data-target="80" data-suffix="%">0%</div>
+          <div class="stat-label">of D1 athletes say game IQ separated them</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-number lime" data-target="40" data-suffix="%">0%</div>
+          <div class="stat-label">faster reaction time with agility training</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-icon">💪</div>
+          <div class="stat-number gold" data-target="3.5" data-suffix="x" data-decimals="1">0x</div>
+          <div class="stat-label">more scholarships with early recruiting prep</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-number magenta" data-target="95" data-suffix="%">0%</div>
+          <div class="stat-label">of scouts value coachability and character</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ THE PATHWAY ═══════════ -->
+  <section class="pathway-section" id="pathway">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">The Journey</div>
+        <h2 class="section-title">Your Pathway to Greatness</h2>
+        <p class="section-subtitle">
+          Every elite athlete's journey follows key developmental stages. Here's the
+          roadmap from first whistle to scholarship signing day.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <!-- Stage 1: Youth -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-age">Ages 6–9 · Foundation</div>
+            <h3>🌱 Fall in Love with Play</h3>
+            <p>
+              Build movement literacy through multi-sport participation. Develop 
+              coordination, balance, and a genuine love for competition. This is where 
+              lifelong athletes are born — not specialists.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Multi-Sport</span>
+              <span class="timeline-tag">Fun First</span>
+              <span class="timeline-tag">Movement Skills</span>
+              <span class="timeline-tag">Teamwork</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 2: Middle School -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-age">Ages 10–13 · Development</div>
+            <h3>📈 Build the Engine</h3>
+            <p>
+              Begin structured skill development while maintaining multi-sport play. 
+              Introduce basic game IQ concepts, study the sport, and develop speed, 
+              agility, and body awareness through deliberate practice.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Skill Building</span>
+              <span class="timeline-tag">Game IQ Basics</span>
+              <span class="timeline-tag">Speed & Agility</span>
+              <span class="timeline-tag">Film Study</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 3: High School (Early) -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-age">Ages 14–15 · Competitive</div>
+            <h3>🔥 Compete & Specialize</h3>
+            <p>
+              Time to narrow focus. Varsity competition begins, and elite club/travel 
+              teams push development. Strength training starts, film study becomes 
+              routine, and the recruiting process enters your radar.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Varsity Play</span>
+              <span class="timeline-tag">Strength Training</span>
+              <span class="timeline-tag">Highlight Film</span>
+              <span class="timeline-tag">Camp Exposure</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 4: High School (Late) -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-age">Ages 16–18 · Recruiting</div>
+            <h3>🎯 Get Recruited</h3>
+            <p>
+              Peak athletic development meets peak recruiting activity. Build your 
+              prospect profile, attend showcases, communicate with coaches, and handle 
+              official visits. Academics are just as critical — maintain your GPA and 
+              test scores.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">NCAA Eligibility</span>
+              <span class="timeline-tag">Official Visits</span>
+              <span class="timeline-tag">Coach Contact</span>
+              <span class="timeline-tag">Academics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 5: D1 & Pro -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-age">Ages 18+ · Elite</div>
+            <h3>🏆 D1 Athlete → Pro Potential</h3>
+            <p>
+              You made it — but the work intensifies. College competition is a new level.
+              Master your craft, be a leader, dominate your position, and put yourself 
+              in position for All-Conference honors and professional scouts' radars.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">D1 Competition</span>
+              <span class="timeline-tag">Draft Prep</span>
+              <span class="timeline-tag">Leadership</span>
+              <span class="timeline-tag">Pro Day</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DEVELOPMENT PILLARS ═══════════ -->
+  <section class="pillars-section" id="pillars">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Core Development</div>
+        <h2 class="section-title">The 5 Pillars of Athletic Excellence</h2>
+        <p class="section-subtitle">
+          D1 athletes don't just train harder — they develop across every dimension.
+          Master these five pillars to separate yourself from the pack.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1: Game IQ -->
+        <div class="pillar-card game-iq reveal">
+          <div class="pillar-icon">🧠</div>
+          <h3>Game IQ & Strategy</h3>
+          <p>Think faster than you move — the smartest athletes see plays before they happen.</p>
+          <ul class="pillar-skills">
+            <li>Film study: Break down game tape weekly</li>
+            <li>Pattern recognition: Read defenses/offenses in real-time</li>
+            <li>Situational awareness: Know the play before it's called</li>
+            <li>Court/field vision: See teammates and space</li>
+            <li>Decision speed: React faster under pressure</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Agility & Speed -->
+        <div class="pillar-card agility reveal reveal-delay-1">
+          <div class="pillar-icon">⚡</div>
+          <h3>Agility & Speed</h3>
+          <p>Quickness isn't born — it's built. First-step explosion changes games.</p>
+          <ul class="pillar-skills">
+            <li>Cone drills: 5-10-5, pro agility, T-drill</li>
+            <li>Ladder work: Quick feet and coordination</li>
+            <li>Sprint mechanics: Proper acceleration technique</li>
+            <li>Change of direction: Plant, cut, explode</li>
+            <li>Reaction training: Visual and auditory cues</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Strength & Power -->
+        <div class="pillar-card strength reveal reveal-delay-2">
+          <div class="pillar-icon">💪</div>
+          <h3>Strength & Power</h3>
+          <p>Controlled power wins battles. Build a body that dominates contact.</p>
+          <ul class="pillar-skills">
+            <li>Age-appropriate progression: Bodyweight → free weights</li>
+            <li>Core stability: Foundation of all athletic movement</li>
+            <li>Explosive power: Box jumps, Olympic lifts, plyometrics</li>
+            <li>Injury prevention: Prehab and mobility work</li>
+            <li>Sport-specific strength: Train for your position</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4: Mental Toughness -->
+        <div class="pillar-card mental reveal reveal-delay-3">
+          <div class="pillar-icon">🎯</div>
+          <h3>Mental Performance</h3>
+          <p>Championships are won between the ears. Mental toughness is the edge.</p>
+          <ul class="pillar-skills">
+            <li>Visualization: See success before it happens</li>
+            <li>Pressure performance: Thrive in big moments</li>
+            <li>Resilience: Bounce back from failure quickly</li>
+            <li>Goal setting: Daily, weekly, season-long targets</li>
+            <li>Coachability: Accept feedback, apply it immediately</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 5: Nutrition & Recovery -->
+        <div class="pillar-card nutrition reveal reveal-delay-4">
+          <div class="pillar-icon">🥗</div>
+          <h3>Nutrition & Recovery</h3>
+          <p>You can't outwork a bad diet. Fuel and rest are part of the work.</p>
+          <ul class="pillar-skills">
+            <li>Pre-game fuel: Carbs + protein timing</li>
+            <li>Hydration: Electrolyte management for performance</li>
+            <li>Sleep optimization: 8–10 hours for growth</li>
+            <li>Recovery protocols: Foam rolling, stretching, ice</li>
+            <li>Supplement awareness: What's safe, what's banned</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ AGE-BASED TRAINING ═══════════ -->
+  <section class="training-section" id="training">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Training by Age</div>
+        <h2 class="section-title">What to Train & When</h2>
+        <p class="section-subtitle">
+          Development isn't one-size-fits-all. Here's exactly what to focus on at each stage — 
+          train the right things at the right time.
+        </p>
+      </div>
+
+      <div class="training-tabs reveal">
+        <button class="training-tab active" data-tab="age-6-8">Ages 6–8</button>
+        <button class="training-tab" data-tab="age-9-11">Ages 9–11</button>
+        <button class="training-tab" data-tab="age-12-14">Ages 12–14</button>
+        <button class="training-tab" data-tab="age-15-18">Ages 15–18</button>
+      </div>
+
+      <!-- Ages 6-8 -->
+      <div class="training-content active" id="age-6-8">
+        <div class="training-grid">
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🏃</span>
+              <span class="training-card-title">Physical Play</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Tag games and relay races for speed</li>
+              <li>Obstacle courses for coordination</li>
+              <li>Jumping, crawling, climbing activities</li>
+              <li>Swimming and gymnastics for body control</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🎮</span>
+              <span class="training-card-title">Game Understanding</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Learn rules of multiple sports</li>
+              <li>Small-sided games (3v3, 4v4)</li>
+              <li>Pass, catch, throw with proper form</li>
+              <li>Learn to be a good teammate</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">💚</span>
+              <span class="training-card-title">Mindset</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Focus on FUN — not winning</li>
+              <li>Learn to handle losing gracefully</li>
+              <li>Practice listening to coaches</li>
+              <li>Celebrate effort, not just results</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ages 9-11 -->
+      <div class="training-content" id="age-9-11">
+        <div class="training-grid">
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">⚡</span>
+              <span class="training-card-title">Speed & Agility</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Basic speed mechanics (arm drive, knee lift)</li>
+              <li>Agility ladder and cone drills 2x/week</li>
+              <li>Bodyweight exercises (push-ups, squats, planks)</li>
+              <li>Balance and proprioception training</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🧠</span>
+              <span class="training-card-title">Sport IQ Growth</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Watch elite athletes and study their movement</li>
+              <li>Begin understanding positions and roles</li>
+              <li>Learn basic offensive/defensive concepts</li>
+              <li>Start a sports journal for reflection</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🏅</span>
+              <span class="training-card-title">Competition</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Travel/club team introduction</li>
+              <li>Multi-sport play (at least 2–3 sports/year)</li>
+              <li>Learn to compete with intensity</li>
+              <li>Develop pre-game routines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ages 12-14 -->
+      <div class="training-content" id="age-12-14">
+        <div class="training-grid">
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">💪</span>
+              <span class="training-card-title">Strength Foundation</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Introduce resistance training with proper form</li>
+              <li>Core stability: planks, med ball rotations</li>
+              <li>Plyometrics: box jumps, broad jumps</li>
+              <li>Flexibility and mobility work daily</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">📹</span>
+              <span class="training-card-title">Film Study & IQ</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Watch game film of your own games weekly</li>
+              <li>Study pro athletes at your position</li>
+              <li>Break down formations and tendencies</li>
+              <li>Start identifying patterns before they develop</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">📚</span>
+              <span class="training-card-title">Academic Foundation</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Maintain strong grades — they matter for eligibility</li>
+              <li>Build study habits that balance athletics</li>
+              <li>Understand NCAA academic requirements</li>
+              <li>Join leadership activities beyond sports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ages 15-18 -->
+      <div class="training-content" id="age-15-18">
+        <div class="training-grid">
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🏋️</span>
+              <span class="training-card-title">Elite Physical Training</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Structured strength program (4–5x/week)</li>
+              <li>Sport-specific speed and agility protocols</li>
+              <li>Olympic lifting foundations (cleans, snatches)</li>
+              <li>Track combine metrics (40-yard, vertical, shuttle)</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🎬</span>
+              <span class="training-card-title">Highlight & Exposure</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Create professional highlight reels</li>
+              <li>Attend college camps and showcases</li>
+              <li>Compete in elite tournaments and invitationals</li>
+              <li>Build your Hudl/recruiting profile</li>
+            </ul>
+          </div>
+          <div class="training-card">
+            <div class="training-card-header">
+              <span class="training-card-icon">🎯</span>
+              <span class="training-card-title">Mental Mastery</span>
+            </div>
+            <ul class="training-card-items">
+              <li>Sports psychology: visualization, breathing</li>
+              <li>Develop a lockdown pre-game routine</li>
+              <li>Handle pressure situations with confidence</li>
+              <li>Lead by example — captains get recruited</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ D1 RECRUITING BLUEPRINT ═══════════ -->
+  <section class="recruiting-section" id="recruiting">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">D1 Blueprint</div>
+        <h2 class="section-title">Your Recruiting Playbook</h2>
+        <p class="section-subtitle">
+          Getting recruited is a process, not a moment. Follow this grade-by-grade 
+          checklist to make sure you're on every coach's radar.
+        </p>
+      </div>
+
+      <div class="recruiting-timeline">
+        <!-- 8th Grade -->
+        <div class="recruiting-phase reveal">
+          <div class="phase-dot">1</div>
+          <div class="phase-grade">8th Grade · Getting on the Radar</div>
+          <h3 class="phase-title">Lay the Foundation</h3>
+          <ul class="phase-checklist">
+            <li><span class="check-box"></span> Maintain a 3.0+ GPA — academics open doors</li>
+            <li><span class="check-box"></span> Play on competitive travel/club teams</li>
+            <li><span class="check-box"></span> Attend sport-specific camps at colleges</li>
+            <li><span class="check-box"></span> Start a list of target schools (dream, reach, safety)</li>
+            <li><span class="check-box"></span> Learn the NCAA eligibility center rules</li>
+          </ul>
+        </div>
+
+        <!-- Freshman -->
+        <div class="recruiting-phase reveal">
+          <div class="phase-dot">2</div>
+          <div class="phase-grade">Freshman · Building Your Profile</div>
+          <h3 class="phase-title">Create Your Presence</h3>
+          <ul class="phase-checklist">
+            <li><span class="check-box"></span> Register with the NCAA Eligibility Center</li>
+            <li><span class="check-box"></span> Create an online recruiting profile (Hudl, NCSA)</li>
+            <li><span class="check-box"></span> Start filming highlight clips from games</li>
+            <li><span class="check-box"></span> Take the PSAT and build standardized test prep</li>
+            <li><span class="check-box"></span> Attend at least 2 college camps in the summer</li>
+          </ul>
+        </div>
+
+        <!-- Sophomore -->
+        <div class="recruiting-phase reveal">
+          <div class="phase-dot">3</div>
+          <div class="phase-grade">Sophomore · Getting Noticed</div>
+          <h3 class="phase-title">Active Outreach Begins</h3>
+          <ul class="phase-checklist">
+            <li><span class="check-box"></span> Email coaches with highlight film & stats</li>
+            <li><span class="check-box"></span> Attend elite showcases and prospect days</li>
+            <li><span class="check-box"></span> Build relationships with high school coaches for referrals</li>
+            <li><span class="check-box"></span> Visit college campuses (unofficial visits)</li>
+            <li><span class="check-box"></span> Continue academic excellence — GPA is non-negotiable</li>
+          </ul>
+        </div>
+
+        <!-- Junior -->
+        <div class="recruiting-phase reveal">
+          <div class="phase-dot">4</div>
+          <div class="phase-grade">Junior · Prime Recruiting Year</div>
+          <h3 class="phase-title">Peak Exposure Season</h3>
+          <ul class="phase-checklist">
+            <li><span class="check-box"></span> Take SAT/ACT and hit target scores</li>
+            <li><span class="check-box"></span> Attend national-level showcases and combines</li>
+            <li><span class="check-box"></span> Respond to college coaches — communication is key</li>
+            <li><span class="check-box"></span> Take official visits to top schools</li>
+            <li><span class="check-box"></span> Update highlight film with junior-year footage</li>
+            <li><span class="check-box"></span> Understand scholarship offers (full ride vs. partial)</li>
+          </ul>
+        </div>
+
+        <!-- Senior -->
+        <div class="recruiting-phase reveal">
+          <div class="phase-dot">5</div>
+          <div class="phase-grade">Senior · Decision Time</div>
+          <h3 class="phase-title">Sign & Commit</h3>
+          <ul class="phase-checklist">
+            <li><span class="check-box"></span> Weigh all scholarship offers carefully</li>
+            <li><span class="check-box"></span> Commit and sign your National Letter of Intent</li>
+            <li><span class="check-box"></span> Maintain grades — offers can be rescinded</li>
+            <li><span class="check-box"></span> Prepare for the college transition (workouts, culture)</li>
+            <li><span class="check-box"></span> Thank every coach who invested in your journey</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHAT SCOUTS LOOK FOR ═══════════ -->
+  <section class="scouts-section" id="scouts">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">The Scout's Eye</div>
+        <h2 class="section-title">Good vs. Elite — What Scouts See</h2>
+        <p class="section-subtitle">
+          Talent gets you in the door. These traits determine whether you stay.
+        </p>
+      </div>
+
+      <div class="scouts-grid">
+        <!-- Good -->
+        <div class="scout-card good reveal">
+          <div class="scout-card-header">
+            <span class="scout-card-badge">Good Athlete</span>
+            <h3>Gets Looks</h3>
+          </div>
+          <ul class="scout-traits">
+            <li><span class="trait-icon">⭐</span> Skilled in their position</li>
+            <li><span class="trait-icon">⭐</span> Puts in work at practice</li>
+            <li><span class="trait-icon">⭐</span> Decent game film</li>
+            <li><span class="trait-icon">⭐</span> Performs well in games</li>
+            <li><span class="trait-icon">⭐</span> Has a highlight reel</li>
+            <li><span class="trait-icon">⭐</span> Good physical measurables</li>
+            <li><span class="trait-icon">⭐</span> Plays on a competitive team</li>
+          </ul>
+        </div>
+
+        <!-- Elite -->
+        <div class="scout-card elite reveal reveal-delay-1">
+          <div class="scout-card-header">
+            <span class="scout-card-badge">Elite Prospect</span>
+            <h3>Gets Offers</h3>
+          </div>
+          <ul class="scout-traits">
+            <li><span class="trait-icon">💎</span> <strong>Dominates</strong> their position</li>
+            <li><span class="trait-icon">💎</span> Works out <strong>outside</strong> of practice daily</li>
+            <li><span class="trait-icon">💎</span> Studies film <strong>on their own</strong></li>
+            <li><span class="trait-icon">💎</span> <strong>Elevates teammates</strong> around them</li>
+            <li><span class="trait-icon">💎</span> <strong>Unbreakable</strong> mental toughness</li>
+            <li><span class="trait-icon">💎</span> <strong>3.5+ GPA</strong> — academic excellence</li>
+            <li><span class="trait-icon">💎</span> <strong>First and last</strong> on the field</li>
+            <li><span class="trait-icon">💎</span> <strong>Character leader</strong> on and off the field</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ QUOTES CAROUSEL ═══════════ -->
+  <section class="quotes-section" id="quotes">
+    <div class="container">
+      <div class="quotes-carousel" id="quotesCarousel">
+        <div class="quote-slide active">
+          <p class="quote-text">Hard work beats talent when talent doesn't work hard.</p>
+          <p class="quote-author">Tim Notke</p>
+          <p class="quote-role">High School Basketball Coach</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">The only way to prove that you're a good sport is to lose.</p>
+          <p class="quote-author">Ernie Banks</p>
+          <p class="quote-role">MLB Hall of Famer</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">I've failed over and over and over again in my life. And that is why I succeed.</p>
+          <p class="quote-author">Michael Jordan</p>
+          <p class="quote-role">6x NBA Champion</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">You miss 100% of the shots you don't take.</p>
+          <p class="quote-author">Wayne Gretzky</p>
+          <p class="quote-role">NHL Legend</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">It's not the will to win that matters — everyone has that. It's the will to prepare to win that matters.</p>
+          <p class="quote-author">Paul "Bear" Bryant</p>
+          <p class="quote-role">Legendary College Football Coach</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">Somewhere behind the athlete you've become is the kid who fell in love with the game. Play for that kid.</p>
+          <p class="quote-author">Unknown</p>
+          <p class="quote-role">Words Every Athlete Needs</p>
+        </div>
+      </div>
+      <div class="quote-dots" id="quoteDots"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-icon">🏆</span>
+            <span>ELITE PATHWAY</span>
+          </a>
+          <p>
+            Empowering young athletes with the knowledge, training framework, and 
+            recruiting roadmap to reach the highest levels of sport.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="#pathway">The Pathway</a></li>
+            <li><a href="#pillars">Development Pillars</a></li>
+            <li><a href="#training">Age Training</a></li>
+            <li><a href="#recruiting">D1 Blueprint</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://web3.ncaa.org/ecwr3/" target="_blank">NCAA Eligibility Center</a></li>
+            <li><a href="https://www.ncsasports.org/" target="_blank">NCSA Recruiting</a></li>
+            <li><a href="https://www.hudl.com/" target="_blank">Hudl Film</a></li>
+            <li><a href="https://www.scholarship-positions.com/" target="_blank">Scholarship Search</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Development</h4>
+          <ul>
+            <li><a href="#pillars">Game IQ</a></li>
+            <li><a href="#pillars">Agility</a></li>
+            <li><a href="#pillars">Strength</a></li>
+            <li><a href="#pillars">Mental</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Elite Pathway. Built for young athletes chasing greatness.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
