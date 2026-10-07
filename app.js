@@ -114,20 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileClose = document.getElementById('mobileClose');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
+  function setMenuOpen(open) {
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
   hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    setMenuOpen(!mobileMenu.classList.contains('open'));
   });
 
   mobileClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
+    setMenuOpen(false);
   });
 
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+      setMenuOpen(false);
     });
   });
 
