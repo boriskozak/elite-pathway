@@ -9,10 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctx = canvas.getContext('2d');
   let particles = [];
   let animationId;
+  let cssW = 0;
+  let cssH = 0;
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Render at devicePixelRatio (capped at 2x) so particles stay crisp on retina
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cssW = window.innerWidth;
+    cssH = window.innerHeight;
+    canvas.width = Math.round(cssW * dpr);
+    canvas.height = Math.round(cssH * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   class Particle {
@@ -21,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+      this.x = Math.random() * cssW;
+      this.y = Math.random() * cssH;
       this.size = Math.random() * 2 + 0.5;
       this.speedX = (Math.random() - 0.5) * 0.5;
       this.speedY = (Math.random() - 0.5) * 0.5;
@@ -34,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x += this.speedX;
       this.y += this.speedY;
 
-      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+      if (this.x < 0 || this.x > cssW || this.y < 0 || this.y > cssH) {
         this.reset();
       }
     }
@@ -51,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function initParticles() {
     particles = [];
-    const count = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
+    const count = Math.min(80, Math.floor(cssW * cssH / 15000));
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
     }
@@ -78,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, cssW, cssH);
     particles.forEach(p => {
       p.update();
       p.draw();
