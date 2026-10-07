@@ -243,28 +243,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedChecks = loadCheckedState();
 
   checklistItems.forEach((item, index) => {
+    // Expose as a real checkbox to assistive tech and keyboard users
+    item.setAttribute('role', 'checkbox');
+    item.setAttribute('tabindex', '0');
+
     if (savedChecks[index]) {
       item.classList.add('checked');
     }
+    item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
 
-    item.addEventListener('click', () => {
-      item.classList.toggle('checked');
+    item.addEventListener('click', () => toggleChecklistItem(item));
 
-      // Save state
-      const state = {};
-      checklistItems.forEach((el, i) => {
-        if (el.classList.contains('checked')) {
-          state[i] = true;
-        }
-      });
-      saveCheckedState(state);
-
-      // Confetti burst on check
-      if (item.classList.contains('checked')) {
-        createMiniConfetti(item);
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleChecklistItem(item);
       }
     });
   });
+
+  function toggleChecklistItem(item) {
+    item.classList.toggle('checked');
+    item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
+
+    // Save state
+    const state = {};
+    checklistItems.forEach((el, i) => {
+      if (el.classList.contains('checked')) {
+        state[i] = true;
+      }
+    });
+    saveCheckedState(state);
+
+    // Confetti burst on check
+    if (item.classList.contains('checked')) {
+      createMiniConfetti(item);
+    }
+  }
 
   function createMiniConfetti(element) {
     const rect = element.getBoundingClientRect();

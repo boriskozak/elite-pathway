@@ -1032,6 +1032,12 @@ img {
   color: var(--text-primary);
 }
 
+.phase-checklist li:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
 .check-box {
   width: 20px;
   height: 20px;
