@@ -97,15 +97,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ─── Navbar Scroll Effect ───
+  // ─── Scroll Effects (navbar state + parallax glows, rAF-throttled) ───
   const nav = document.getElementById('navbar');
+  const glows = document.querySelectorAll('.hero-glow');
+  let scrollTicking = false;
+
+  function updateScrollEffects() {
+    const scrollY = window.scrollY;
+    nav.classList.toggle('scrolled', scrollY > 50);
+    glows.forEach((glow, i) => {
+      const speed = 0.1 + i * 0.05;
+      glow.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+    scrollTicking = false;
+  }
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(updateScrollEffects);
     }
-  });
+  }, { passive: true });
 
 
   // ─── Mobile Menu ───
@@ -371,15 +383,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  // ─── Parallax Glow Orbs on Scroll ───
-  const glows = document.querySelectorAll('.hero-glow');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    glows.forEach((glow, i) => {
-      const speed = 0.1 + i * 0.05;
-      glow.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-  });
 
 });
