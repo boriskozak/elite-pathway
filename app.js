@@ -223,8 +223,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Recruiting Checklist ───
   const checklistItems = document.querySelectorAll('.phase-checklist li');
 
-  // Load saved state
-  const savedChecks = JSON.parse(localStorage.getItem('elitePathwayChecks') || '{}');
+  // Load saved state (guard against corrupt or inaccessible storage)
+  function loadCheckedState() {
+    try {
+      return JSON.parse(localStorage.getItem('elitePathwayChecks') || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveCheckedState(state) {
+    try {
+      localStorage.setItem('elitePathwayChecks', JSON.stringify(state));
+    } catch (err) {
+      // Private browsing or quota exceeded: checklist just won't persist
+    }
+  }
+
+  const savedChecks = loadCheckedState();
 
   checklistItems.forEach((item, index) => {
     if (savedChecks[index]) {
@@ -241,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
           state[i] = true;
         }
       });
-      localStorage.setItem('elitePathwayChecks', JSON.stringify(state));
+      saveCheckedState(state);
 
       // Confetti burst on check
       if (item.classList.contains('checked')) {
