@@ -341,22 +341,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSlide = 0;
   let quoteInterval;
 
-  // Create dots
+  // Create dots (real buttons, so they are keyboard-operable and labeled)
   slides.forEach((_, i) => {
-    const dot = document.createElement('div');
+    const dot = document.createElement('button');
+    dot.type = 'button';
     dot.className = `quote-dot${i === 0 ? ' active' : ''}`;
+    dot.setAttribute('aria-label', `Show quote ${i + 1} of ${slides.length}`);
+    dot.setAttribute('aria-current', i === 0 ? 'true' : 'false');
     dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
   });
 
   function goToSlide(index) {
+    const dots = document.querySelectorAll('.quote-dot');
     slides[currentSlide].classList.remove('active');
-    document.querySelectorAll('.quote-dot')[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    dots[currentSlide].setAttribute('aria-current', 'false');
 
     currentSlide = index;
 
     slides[currentSlide].classList.add('active');
-    document.querySelectorAll('.quote-dot')[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    dots[currentSlide].setAttribute('aria-current', 'true');
 
     resetQuoteTimer();
   }

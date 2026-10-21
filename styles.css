@@ -1225,6 +1225,8 @@ img {
 .quote-dot {
   width: 10px;
   height: 10px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
   background: var(--surface-border);
   cursor: pointer;
