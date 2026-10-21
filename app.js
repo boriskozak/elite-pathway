@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let particlesRunning = false;
+
   function animateParticles() {
     ctx.clearRect(0, 0, cssW, cssH);
     particles.forEach(p => {
@@ -94,9 +96,30 @@ document.addEventListener('DOMContentLoaded', () => {
     animationId = requestAnimationFrame(animateParticles);
   }
 
+  function startParticles() {
+    if (particlesRunning) return;
+    particlesRunning = true;
+    animateParticles();
+  }
+
+  function stopParticles() {
+    particlesRunning = false;
+    if (animationId) cancelAnimationFrame(animationId);
+    animationId = undefined;
+  }
+
+  // No point animating a background canvas nobody can see
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopParticles();
+    } else {
+      startParticles();
+    }
+  });
+
   resizeCanvas();
   initParticles();
-  animateParticles();
+  if (!document.hidden) startParticles();
 
   window.addEventListener('resize', () => {
     resizeCanvas();
