@@ -171,6 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setMenuOpen(false);
   });
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setMenuOpen(false);
+      hamburger.focus();
+    }
+  });
+
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       setMenuOpen(false);
