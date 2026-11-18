@@ -1317,30 +1317,6 @@ html.js .reveal {
   color: var(--text-muted);
 }
 
-.footer-socials {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-socials a {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-glass);
-  border: 1px solid var(--surface-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  transition: all var(--transition-fast);
-}
-
-.footer-socials a:hover {
-  background: rgba(0, 229, 255, 0.1);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-}
-
 /* ── Mobile Nav ── */
 .mobile-menu {
   display: none;
