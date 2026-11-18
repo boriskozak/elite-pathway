@@ -101,6 +101,14 @@ img {
   display: block;
 }
 
+/* Visible keyboard focus for every interactive element (previously only
+   the checklist items had a focus style, so tabbing through nav, tabs,
+   buttons, and dots gave no indication of where focus was) */
+:focus-visible {
+  outline: 3px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
 /* ── Utility ── */
 .container {
   max-width: var(--container-max);
