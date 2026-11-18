@@ -148,9 +148,14 @@ img {
 
 /* ── Scroll Reveal ── */
 .reveal {
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+/* Only hide reveal content when JS runs: without JS nothing ever adds
+   .visible, so unscoped opacity: 0 would leave the page blank. */
+html.js .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
 }
 
 .reveal.visible {
