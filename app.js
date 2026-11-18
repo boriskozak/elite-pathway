@@ -256,23 +256,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.training-tab');
   const contents = document.querySelectorAll('.training-content');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetId = tab.dataset.tab;
+  function selectTab(tab) {
+    const targetId = tab.dataset.tab;
 
-      tabs.forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
 
-      contents.forEach(c => {
-        c.classList.remove('active');
-        if (c.id === targetId) {
-          c.classList.add('active');
-        }
-      });
+    contents.forEach(c => {
+      c.classList.remove('active');
+      if (c.id === targetId) {
+        c.classList.add('active');
+      }
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectTab(tab));
+
+    // Arrow keys move between tabs, Home/End jump to the ends (ARIA tab pattern)
+    tab.addEventListener('keydown', (e) => {
+      let next = null;
+      if (e.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      if (next === null) return;
+      e.preventDefault();
+      tabs[next].focus();
+      selectTab(tabs[next]);
     });
   });
 
