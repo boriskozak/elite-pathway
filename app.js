@@ -4,6 +4,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Honor the user's reduced-motion preference: no particle animation,
+  // no auto-advancing carousel, counters jump to their final values,
+  // and in-page scrolling is instant instead of smooth.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ─── Particle Canvas Background ───
   const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startParticles() {
-    if (particlesRunning) return;
+    if (particlesRunning || prefersReducedMotion) return;
     particlesRunning = true;
     animateParticles();
   }
@@ -211,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = parseFloat(el.dataset.target);
         const suffix = el.dataset.suffix || '';
         const decimals = parseInt(el.dataset.decimals) || 0;
+
+        // With reduced motion, show the final value immediately
+        if (prefersReducedMotion) {
+          el.textContent = decimals > 0
+            ? target.toFixed(decimals) + suffix
+            : target.toLocaleString() + suffix;
+          counterObserver.unobserve(el);
+          return;
+        }
+
         const duration = 2000;
         const startTime = performance.now();
 
@@ -425,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetQuoteTimer() {
     clearInterval(quoteInterval);
-    if (!quotePaused) {
+    if (!quotePaused && !prefersReducedMotion) {
       quoteInterval = setInterval(nextSlide, 5000);
     }
   }
@@ -466,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const offsetTop = target.offsetTop - 80;
         window.scrollTo({
           top: offsetTop,
-          behavior: 'smooth'
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
         });
       }
     });

@@ -169,6 +169,13 @@ html.js .reveal {
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
+/* With reduced motion, reveal content appears instantly instead of fading in */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
+}
+
 /* ── Navigation ── */
 .nav {
   position: fixed;
