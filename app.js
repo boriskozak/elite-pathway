@@ -391,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dotsContainer = document.getElementById('quoteDots');
   let currentSlide = 0;
   let quoteInterval;
+  let quotePaused = false;
 
   // Create dots (real buttons, so they are keyboard-operable and labeled)
   slides.forEach((_, i) => {
@@ -424,8 +425,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetQuoteTimer() {
     clearInterval(quoteInterval);
-    quoteInterval = setInterval(nextSlide, 5000);
+    if (!quotePaused) {
+      quoteInterval = setInterval(nextSlide, 5000);
+    }
   }
+
+  // Don't yank the quote out from under someone reading it: pause the
+  // auto-advance while the pointer is over the quotes section or focus is
+  // inside it (the dots sit outside #quotesCarousel, so listen on the
+  // whole section, not just the slide container)
+  const quotesSection = document.getElementById('quotes');
+  function pauseQuotes() {
+    quotePaused = true;
+    clearInterval(quoteInterval);
+  }
+  function resumeQuotes() {
+    quotePaused = false;
+    resetQuoteTimer();
+  }
+  quotesSection.addEventListener('mouseenter', pauseQuotes);
+  quotesSection.addEventListener('mouseleave', resumeQuotes);
+  quotesSection.addEventListener('focusin', pauseQuotes);
+  quotesSection.addEventListener('focusout', (e) => {
+    if (!quotesSection.contains(e.relatedTarget)) {
+      resumeQuotes();
+    }
+  });
 
   resetQuoteTimer();
 
